@@ -1,6 +1,14 @@
 package stagetime
 
+import org.apache.commons.logging.LogFactory
+import org.codehaus.groovy.grails.commons.GrailsApplication
+
 class GeneralService {
+
+    private static final log = LogFactory.getLog('grails.app.' + GeneralService.class.name)
+
+    def grailsApplication
+
     /**
      * Returns current time
      * @return current times
@@ -11,8 +19,6 @@ class GeneralService {
         TimeZone.setDefault(reference);
         return myCal.getTime()
     }
-
-
 
     //documents on disk
     def static fileExists(String path){
@@ -28,5 +34,25 @@ class GeneralService {
         }
         return ret
     }
+    /**
+     * @param filename
+     * @return uri of the file on the server
+     */
+    def String createFile(String filename, Long user_id){
+        def prefix_path = grailsApplication.config.varDirectoryPrefix
+        def path = prefix_path + user_id + "/" + filename +"_" + new Date().getTime()
+        def file = new File(path)
+        try {
+            if (file.createNewFile()){
+                log.info("New file created: "+file)
+            }else{
+                log.info("File already exists: "+file)
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            log.error("Path not valid !")
+        }
 
+        return file.getAbsolutePath()
+    }
 }
