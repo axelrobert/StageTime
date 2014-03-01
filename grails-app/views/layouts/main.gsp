@@ -26,6 +26,24 @@
 	</head>
 	<body>
 		<div class="container">
+		<g:if test="${ flash.message }" >
+				<div class="alert alert-info">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					${ flash.message }
+				</div>
+			</g:if>
+			<g:if test="${ flash.error }" >
+				<div class="alert alert-error">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					${ flash.error }
+				</div>
+			</g:if>
+			<g:if test="${ flash.success }" >
+				<div class="alert alert-danger">
+					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+					${ flash.success }
+				</div>
+			</g:if>
 			<g:layoutBody/>
 		</div>
 		<r:layoutResources />
