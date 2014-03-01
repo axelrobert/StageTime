@@ -3,6 +3,8 @@ package stagetime
 import stagetime.security.SessionService
 
 class InternshipOfferController {
+    def InternshipOfferService internshipOfferService
+
 
     InternshipOfferService internshipOfferService
     SessionService sessionService
@@ -44,8 +46,9 @@ class InternshipOfferController {
      *params id : the id of the internship offer to delete
      */
     def delete(long id) {
-        InternshipOfferService.deleteInternshipOffer(id)
+        def user = InternshipOffer.get(id)
+        internshipOfferService.deleteInternshipOffer(user)
 
-        redirect(action:index)
+        redirect(action:"index")
     }
 }

@@ -1,3 +1,5 @@
+import org.apache.log4j.PatternLayout
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -118,8 +120,18 @@ log4j = {
            'org.codehaus.groovy.grails.web.mapping',        // URL mapping
            'org.codehaus.groovy.grails.commons',            // core / classloading
            'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
+            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+}
+
+
+def logLayoutPattern = new PatternLayout("%d{HH:mm:ss.SSS} [%t] %x %-5p %c{2} - %m%n")
+environments {
+    development {
+        // Set level for all application artifacts
+        info "grails.app",
+                error "grails.app"
+    }
 }

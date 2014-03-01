@@ -18,8 +18,7 @@ class InternshipOfferService {
         }
     }
 
-    def deleteInternshipOffer(long id) {
-        def internshipOffer = InternshipOffer.get(id)
+    def deleteInternshipOffer(InternshipOffer internshipOffer) {
         def path = grailsApplication.config.varDirectoryPrefix
         path += internshipOffer.uri
         GeneralService.deleteFile(path)

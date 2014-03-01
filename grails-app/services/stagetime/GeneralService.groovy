@@ -9,6 +9,8 @@ class GeneralService {
 
     def grailsApplication
 
+    private static final log = LogFactory.getLog(this)
+
     /**
      * Returns current time
      * @return current times
@@ -21,14 +23,23 @@ class GeneralService {
     }
 
     //documents on disk
-    def static fileExists(String path){
-        def f = new File(path)
-        return f.exists()
+    /**
+     * return true if the path already exists on disk
+     * @param path
+     * @return bool
+     */
+    def static fileExists(file){
+        return file.exists()
     }
 
-    def static deleteFile(String path){
-        def f = new File(path)
-        def ret = f.delete()
+    /**
+     * delete the path documents
+     * return result of delete action
+     * @param path
+     * @return bool
+     */
+    def static deleteFile(file){
+        def ret = file.delete()
         if (!ret ){
             log.error("error on removing object")
         }

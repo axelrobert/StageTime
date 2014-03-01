@@ -1,4 +1,4 @@
-package stagetime.security
+package stagetime
 
 import grails.test.mixin.TestFor
 import spock.lang.Specification
@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
-@TestFor(ConnectionAttemptService)
-class ConnectionAttemptServiceSpec extends Specification {
+@TestFor(InternshipOfferService)
+class InternshipOfferServiceSpec extends Specification {
 
     def setup() {
     }
@@ -15,6 +15,7 @@ class ConnectionAttemptServiceSpec extends Specification {
     def cleanup() {
     }
 
-    void "test something"() {
+    void "test delete"() {
+
     }
 }
