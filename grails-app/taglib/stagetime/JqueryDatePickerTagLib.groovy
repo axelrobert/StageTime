@@ -4,10 +4,11 @@ class JqueryDatePickerTagLib {
     def jqDatePicker = {attrs, body ->
         def out = out
         def name = attrs.name    //The name attribute is required for the tag to work seamlessly with grails
+        def value = attrs.value
         def id = attrs.id ?: name
 
         //Create date text field and supporting hidden text fields need by grails
-        out.println "<input type=\"text\" name=\"${name}\" id=\"${id}\" />"
+        out.println "<input type=\"text\" name=\"${name}\" id=\"${id}\" value=\"${value}\"/>"
         out.println "<span class=\"glyphicon glyphicon-calendar\"></span>"
         out.println "<input type=\"hidden\" name=\"${name}_day\" id=\"${id}_day\" />"
         out.println "<input type=\"hidden\" name=\"${name}_month\" id=\"${id}_month\" />"
