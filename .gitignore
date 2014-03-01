@@ -40,6 +40,9 @@
 
 # "temporary" build files
 /target
+/target-eclipse
 
 # other
 *.iws
+
+application.properties
