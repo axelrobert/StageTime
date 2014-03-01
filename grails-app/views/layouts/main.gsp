@@ -44,19 +44,19 @@
 			<g:if test="${ flash.message }" >
 				<div class="alert alert-info">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<g:message code="${ flash.message }"/>
+					<g:message code="${ flash.message }" args="${ flash.args }"/>
 				</div>
 			</g:if>
 			<g:if test="${ flash.error }" >
 				<div class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<g:message code="${ flash.error }"/>
+					<g:message code="${ flash.error }" args="${ flash.args }"/>
 				</div>
 			</g:if>
 			<g:if test="${ flash.success }" >
 				<div class="alert alert-danger">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					<g:message code="${ flash.success }"/>
+					<g:message code="${ flash.success }" args="${ flash.args }"/>
 				</div>
 			</g:if>
 			<!-- body layout -->
