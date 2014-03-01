@@ -25,27 +25,74 @@
 		<r:layoutResources />
 	</head>
 	<body>
+		<header id="top" class="navbar navbar-static-top bs-docs-nav" role="banner">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container">
+					<div class="container-fluid">
+						<div class="navbar-header">
+							<button class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"></button>
+							<a class="navbar-brand" href="#">TimeStage</a>
+						</div>
+						<ul class="nav navbar-nav"><li><a href="#">click</a></li></ul>
+						<ul class="nav navbar-nav navbar-right"><li><a href="#">click</a></li></ul>
+					</div>
+				</div>
+			</nav>
+		</header>
 		<div class="container">
-		<g:if test="${ flash.message }" >
+			<!-- flash messages -->
+			<g:if test="${ flash.message }" >
 				<div class="alert alert-info">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					${ flash.message }
+					<g:message code="${ flash.message }"/>
 				</div>
 			</g:if>
 			<g:if test="${ flash.error }" >
 				<div class="alert alert-error">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					${ flash.error }
+					<g:message code="${ flash.error }"/>
 				</div>
 			</g:if>
 			<g:if test="${ flash.success }" >
 				<div class="alert alert-danger">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-					${ flash.success }
+					<g:message code="${ flash.success }"/>
 				</div>
 			</g:if>
+			<!-- body layout -->
 			<g:layoutBody/>
 		</div>
+		<footer class="well">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-4">
+						<h4>Developers</h4>
+						<ul class="list-group">
+							<li class="list-group-item">Franck Arrecot</li>
+							<li class="list-group-item">Loïc Favier</li>
+							<li class="list-group-item">Kevin Anatole</li>
+							<li class="list-group-item">Julien Barreau</li>
+							<li class="list-group-item">Axel Robert</li>
+							<li class="list-group-item">Nathanaël Bertran</li>
+						</ul>
+					</div>
+					<div class="col-sm-4">
+						<h4>Thanks to</h4>
+						<ul class="list-group">
+							<li class="list-group-item">Grails community</li>
+						</ul>
+					</div>
+					<div class="col-sm-4">
+						<h4>Liens utiles</h4>
+						<ul class="list-group">
+							<li class="list-group-item">Grails link</li>
+							<li class="list-group-item">Master link</li>
+							<li class="list-group-item">University link</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
 		<r:layoutResources />
 	</body>
 </html>
