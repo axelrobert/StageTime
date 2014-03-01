@@ -92,12 +92,16 @@ waiting.time=5
 environments {
     development {
         grails.logging.jul.usebridge = true
+        varDirectory = "/var/stageTime/"
     }
     production {
         grails.logging.jul.usebridge = false
         // TODO: grails.serverURL = "http://www.changeme.com"
     }
 }
+
+//root path for documents
+varDirectoryPrefix = "/var/stageTime/"
 
 // log4j configuration
 log4j = {
