@@ -14,12 +14,14 @@
 		<link rel="apple-touch-icon" sizes="114x114" href="${resource(dir: 'images', file: 'apple-touch-icon-retina.png')}">
 		<!-- JQuery includes -->
 		<script src="//code.jquery.com/jquery.js"></script>
+		<script src="${resource(dir:'js', file:'jquery-ui-1.10.4.custom.js')}"></script>
 		<!-- Bootstrap includes -->
 		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-		<g:layoutHead/>	
+        <link rel="stylesheet" href="${resource(dir: 'css/smoothness', file: 'jquery-ui-1.10.4.custom.min.css')}" type="text/css">
+		<g:layoutHead/>
 		<r:layoutResources />
 	</head>
 	<body>
