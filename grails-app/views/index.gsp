@@ -2,9 +2,9 @@
 <html>
 	<head>
 		<meta name="layout" content="main"/>
-		<title>Welcome to IngéStage</title>
+		<title>Welcome to TimeStage</title>
 	</head>
 	<body>
-		<h1>IngéStage</h1>
+		<h1>TimeStage</h1>
 	</body>
 </html>
