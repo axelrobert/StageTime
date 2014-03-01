@@ -1,15 +1,12 @@
 package stagetime
 
 import org.apache.commons.logging.LogFactory
-import org.codehaus.groovy.grails.commons.GrailsApplication
 
 class GeneralService {
 
     private static final log = LogFactory.getLog('grails.app.' + GeneralService.class.name)
 
     def grailsApplication
-
-    private static final log = LogFactory.getLog(this)
 
     /**
      * Returns current time

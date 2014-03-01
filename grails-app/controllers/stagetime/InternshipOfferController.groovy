@@ -3,9 +3,6 @@ package stagetime
 import stagetime.security.SessionService
 
 class InternshipOfferController {
-    def InternshipOfferService internshipOfferService
-
-
     InternshipOfferService internshipOfferService
     SessionService sessionService
     GeneralService generalService
@@ -38,6 +35,17 @@ class InternshipOfferController {
                 return false
             }
         }
+    }
+
+    /**
+     * show list of internshipOffers corresponding to him
+     * for recruiter only
+     * @return
+     */
+    def list(){
+        def user = (Recruiter)sessionService.getUser()
+        def internshipOffers = user.internshipOffers
+        render(view:"list", model: [offers:internshipOffers])
     }
 
     /**
