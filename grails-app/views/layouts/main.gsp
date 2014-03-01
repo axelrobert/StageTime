@@ -19,8 +19,7 @@
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="${resource(dir: 'css', file: 'main.css')}" type="text/css">
-		<g:layoutHead/>
-		<g:javascript library="application"/>		
+		<g:layoutHead/>	
 		<r:layoutResources />
 	</head>
 	<body>
