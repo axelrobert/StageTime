@@ -44,7 +44,7 @@ class InternshipOfferController {
      */
     def list(){
         def user = (Recruiter)sessionService.getUser()
-        def internshipOffers = user.internshipOffers
+        def internshipOffers = user.getInternshipOffers()
         render(view:"list", model: [offers:internshipOffers])
     }
 
