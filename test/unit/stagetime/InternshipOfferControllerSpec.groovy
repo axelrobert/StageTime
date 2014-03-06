@@ -64,5 +64,29 @@ class InternshipOfferControllerSpec extends Specification {
         response.redirectUrl == '/internshipOffer/list'
     }
 
+    void "test edit"(){
+        given:
+        InternshipOfferService internshipOfferService = Mock()
+        SessionService sessionService = Mock()
+        GeneralService generalService = Mock()
 
+        and :
+        sessionService.getUser >> user
+        generalService.createFile >> uri
+        internshipOfferService.saveInternshipOffer >> save
+        controller.sessionService = sessionService
+        controller.generalService = generalService
+        controller.internshipOfferService = internshipOfferService
+        request.method = method
+        controller.edit()
+
+        expected:
+        response.redirectedUrl == url
+
+        where:
+        user    |uri    |save   |method    |url
+        null    |null    |null   |"GET"    |"/InternshipOffer/edit"
+        null    |null    |true   |"POST"    |"/InternshipOffer/list"
+        null    |null    |false   |"POST"    |"/InternshipOffer/edit"
+    }
 }

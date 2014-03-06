@@ -9,12 +9,12 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>StageTime - Create Internship Offer</title>
+    <title>StageTime - Création offre de stage</title>
 </head>
 
 <body>
     <div>
-        <h1>Create Event</h1>
+        <h1>Créer offre de stage</h1>
         <g:if test="${flash.message}">
             <div><g:message code="${flash.message}"/></div>
         </g:if>
@@ -24,7 +24,7 @@
 
         <g:form action="create" method="POST">
             <g:render template="form"/>
-            <g:submitButton name="create" value="Create" />
+            <g:submitButton name="create" value="Créer" />
         </g:form>
     </div>
 </body>
