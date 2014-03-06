@@ -9,7 +9,7 @@ import stagetime.security.SessionService
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(InternshipOfferController)
-@Mock([InternshipOfferService, InternshipOffer])
+@Mock([InternshipOfferService, InternshipOffer, SessionService,GeneralService])
 class InternshipOfferControllerSpec extends Specification {
 
     def setup() {
@@ -30,7 +30,7 @@ class InternshipOfferControllerSpec extends Specification {
         controller.delete(5)
 
         expect:
-        response.redirectUrl == "/internshipOffer/index"
+        response.redirectedUrl == "/internshipOffer/index"
 
 
         where:
@@ -71,22 +71,23 @@ class InternshipOfferControllerSpec extends Specification {
         GeneralService generalService = Mock()
 
         and :
-        sessionService.getUser >> user
-        generalService.createFile >> uri
-        internshipOfferService.saveInternshipOffer >> save
+        sessionService.getUser() >> user
+        generalService.createFile(_,_) >> uri
+        internshipOfferService.saveInternshipOffer(_,_) >> save
         controller.sessionService = sessionService
         controller.generalService = generalService
         controller.internshipOfferService = internshipOfferService
         request.method = method
         controller.edit()
 
-        expected:
-        response.redirectedUrl == url
+        expect:
+        controller.response.redirectUrl == redirectUrl
+        view == expectedView
 
         where:
-        user    |uri    |save   |method    |url
-        null    |null    |null   |"GET"    |"/InternshipOffer/edit"
-        null    |null    |true   |"POST"    |"/InternshipOffer/list"
-        null    |null    |false   |"POST"    |"/InternshipOffer/edit"
+        user    |uri    |save   |method    |redirectUrl             |expectedView
+        null    |null   |null   |"GET"     |null                    |"/internshipOffer/edit"
+        null    |null   |true   |"POST"    |"/internshipOffer/list" |null
+        null    |null   |false  |"POST"    |null                    |"/internshipOffer/edit"
     }
 }
