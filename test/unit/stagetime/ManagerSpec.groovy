@@ -1,6 +1,7 @@
 package stagetime
 
 import grails.test.mixin.TestFor
+import org.apache.catalina.Manager
 import spock.lang.Specification
 
 /**

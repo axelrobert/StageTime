@@ -2,9 +2,11 @@ package stagetime
 
 import grails.transaction.Transactional
 import org.apache.commons.logging.LogFactory
+import org.hibernate.HibernateException
 
 @Transactional
 class InternshipOfferService {
+    def grailsApplication
 
     private static final log = LogFactory.getLog('grails.app.' + InternshipOfferService.class.name)
 
@@ -21,8 +23,15 @@ class InternshipOfferService {
     def deleteInternshipOffer(InternshipOffer internshipOffer) {
         def path = grailsApplication.config.varDirectoryPrefix
         path += internshipOffer.uri
-        GeneralService.deleteFile(path)
+        if (!GeneralService.deleteFile(new File(path)))
+            return false;
 
-        internshipOffer.delete()
+        try{
+            internshipOffer.delete()
+        }catch (HibernateException e){
+            log.error('error on removing internship offer')
+            return false;
+        }
+        return true;
     }
 }

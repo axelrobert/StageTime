@@ -35,7 +35,7 @@ class GeneralService {
      * @param path
      * @return bool
      */
-    def static deleteFile(file){
+    def static deleteFile(File file){
         def ret = file.delete()
         if (!ret ){
             log.error("error on removing object")
